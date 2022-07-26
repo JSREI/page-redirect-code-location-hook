@@ -22,4 +22,5 @@
 检测到之后重定向并不是一个好的应对行为，因为笔者注意到之前收藏的几个检测到后重定向的网站都改为了检测之后不再重定向而是其他应对策略。
 
 
-
+## 四、其它  
+本项目自项目[https://github.com/CC11001100/crawler-js-hook-framework-public](https://github.com/CC11001100/crawler-js-hook-framework-public)迁移至此，原项目太多内容放在一个项目里，因此分发为多个小项目。 

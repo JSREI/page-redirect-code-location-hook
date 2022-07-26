@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         页面跳转阻断
+// @name         页面跳转JS代码定位通杀方案
 // @namespace   https://github.com/CC11001100/page-redirect-code-location-hook
-// @version      0.1
+// @version      0.2
 // @description  阻断页面跳转，留在当前页面分析
 // @author       CC11001100
 // @match       *://*/*
