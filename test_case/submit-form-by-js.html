@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用JS提交表单的例子</title>
+</head>
+<body>
+
+<form action="https://example.com" method="get">
+
+    <label for="name">
+        姓名：
+        <input id="name" name="name" type="text">
+    </label> <br>
+
+    <input type="hidden" name="sign" id="sign">
+
+    <button type="submit" onclick="submitForm(this)">提交表单</button>
+
+</form>
+
+<script src="../main.js"></script>
+<script type="text/javascript">
+
+    function submitForm() {
+        document.getElementById("sign").value = "This is a very confidential signature, encrypted with a very complex algorithm";
+        arguments[0].form.submit();
+    }
+
+</script>
+</body>
+</html>
