@@ -22,6 +22,7 @@
 <script src="../main.js"></script>
 <script type="text/javascript">
 
+    <!--  寄了，这种方式提交的好像也hook不到，妈的要玩脱了...  -->
     function submitForm() {
         document.getElementById("sign").value = "This is a very confidential signature, encrypted with a very complex algorithm";
         arguments[0].form.submit();
