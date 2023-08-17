@@ -11,7 +11,7 @@
 // ==/UserScript==
 (() => {
 
-    // 使用说明： https://github.com/CC11001100/page-redirect-code-location-hook
+    // 使用说明： https://github.com/JSREI/page-redirect-code-location-hook
 
     window.onbeforeunload = () => {
         debugger;
