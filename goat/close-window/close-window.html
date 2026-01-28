@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F12 Close Page</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #74b9ff, #ff7eb3);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>欢迎来到此靶场</h1>
+  <p>如果尝试打开开发者工具，此页面将被立刻关闭</p>
+</div>
+
+<script>
+  // 初始窗口大小
+  var initialWidth = window.outerWidth;
+  var initialHeight = window.outerHeight;
+
+  // 监听窗口大小变化
+  window.addEventListener('resize', function() {
+    // 检测到窗口大小变化
+    if (window.outerWidth !== initialWidth || window.outerHeight !== initialHeight) {
+      // 关闭页面
+      window.close();
+    }
+  });
+</script>
+</body>
+</html>

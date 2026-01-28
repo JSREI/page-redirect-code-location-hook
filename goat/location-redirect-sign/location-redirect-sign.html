@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encrypted Parameter Redirect</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #ffe259; /* 活泼的背景色 */
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      background-color: #ff6347; /* 番茄色 */
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff4d38;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>点击按钮进行页面重定向</h1>
+  <p>点击下面的按钮，当前页面将重定向到一个新的URL，并携带一个加密参数，你的任务就是定位到这个加密参数生成的位置和逻辑。</p>
+  <button onclick="redirectPage()">重定向页面</button>
+</div>
+
+<script>
+  function redirectPage() {
+    // 随机生成一个加密参数
+    const sign = btoa(Math.random().toString(36).substring(7));
+    // 重定向到新的URL并传递加密参数
+    window.location.href = `redirect.html?sign=${sign}`;
+  }
+</script>
+</body>
+</html>
