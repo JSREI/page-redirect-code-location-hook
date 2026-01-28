@@ -1,54 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>F12 Close Page</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #74b9ff, #ff7eb3);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F12 Close Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #74b9ff, #ff7eb3);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-    .container {
-      text-align: center;
-    }
+        .container {
+            text-align: center;
+        }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
 
-    p {
-      font-size: 1.2rem;
-    }
-  </style>
+        p {
+            font-size: 1.2rem;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
-  <h1>欢迎来到此靶场</h1>
-  <p>如果尝试打开开发者工具，此页面将被立刻关闭</p>
+    <h1>欢迎来到此靶场</h1>
+    <p>如果尝试打开开发者工具，此页面将被立刻关闭，并且在关闭之前上报标记此IP有问题</p>
 </div>
 
 <script>
-  // 初始窗口大小
-  var initialWidth = window.outerWidth;
-  var initialHeight = window.outerHeight;
 
-  // 监听窗口大小变化
-  window.addEventListener('resize', function() {
-    // 检测到窗口大小变化
-    if (window.outerWidth !== initialWidth || window.outerHeight !== initialHeight) {
-      // 关闭页面
-      window.close();
+    // 监听开发者工具是否被打开
+    window.addEventListener('keydown', (event) => {
+        // 检查是否按下了F12键
+        if (event.keyCode === 123) {
+            // 关闭页面
+            window.close();
+            // 上报IP地址
+            reportIP();
+        }
+    });
+
+    // 监听右键菜单打开
+    document.addEventListener('contextmenu', (event) => {
+        event.preventDefault();
+        window.close();
+        reportIP();
+    });
+
+    // 上报IP地址到服务器
+    function reportIP() {
+        // 这里使用navigator.connection来获取IP地址，但请注意这并不是一个可靠的方法
+        // 实际应用中可能需要更复杂的方法来获取IP地址
+        const ip = '获取IP地址的方法';
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/report-ip', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send(`ip=${ip}`);
     }
-  });
+
 </script>
 </body>
 </html>
